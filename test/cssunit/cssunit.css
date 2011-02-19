@@ -1,0 +1,31 @@
+/* 
+    Document   : cssunit
+    Created on : Sep 26, 2010, 7:25:03 PM
+    Author     : simon
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+
+.cssunit-outline-element {
+  outline: 1px solid #00c;
+}
+
+.cssunit-outline-element-selected {
+  outline: 2px solid #0c0;
+}
+
+#cssunit{
+  position: absolute;
+  top:0;
+  background: #EEE;
+}
+
+#cssunit .content{
+  display:none;
+}
