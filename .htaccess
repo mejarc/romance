@@ -218,9 +218,15 @@ AddType application/octet-stream       safariextz
   ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
     
 # css and javascript
+<<<<<<< HEAD
   ExpiresByType text/css                  "access plus 2 months"
   ExpiresByType application/javascript    "access plus 2 months"
   ExpiresByType text/javascript           "access plus 2 months"
+=======
+  ExpiresByType text/css                  "access plus 1 year"
+  ExpiresByType application/javascript    "access plus 1 year"
+  ExpiresByType text/javascript           "access plus 1 year"
+>>>>>>> 03457878c37a08e3a1a0d3e408348e32571a4289
   <IfModule mod_headers.c>
     Header append Cache-Control "public"
   </IfModule>
