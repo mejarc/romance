@@ -36,11 +36,12 @@ form li label { display:inline-block; }
 
 form li input, 
 form li button {
-font-size:11px;
 border:1px solid #CAD4E7;
 -moz-border-radius:3px;
 -webkit-border-radius:3px;
 border-radius:3px;
+font-size: 13px;
+padding:5px;
 text-align:center;
 width:220px;
 }
@@ -59,7 +60,6 @@ cursor: pointer;
 font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
 height:auto;
 margin: 0 0 0 230px;
-padding:5px;
 }
 
 .fb_edge_widget_with_comment {
