@@ -24,7 +24,7 @@ vertical-align:top;
 }
 
 
-section, form li { margin: 0 0 1.2em 0;}
+p, li, section { margin: 0 0 1.2em 0;}
 section { max-width: 90%; }
 
 form ol li {
