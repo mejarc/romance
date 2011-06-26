@@ -1,18 +1,15 @@
-/* Author: Melanie Archer, twobanjos.com
-
-*/
-
-//shuffle plugin, http://yelotofu.com/2008/08/jquery-shuffle-plugin/
-(function ($) {
-    $.shuffle = function (arr) {
-        for (
-        var j, x, i = arr.length; i;
-        j = parseInt(Math.random() * i), x = arr[--i], arr[i] = arr[j], arr[j] = x);
+/* Author: Melanie Archer, twobanjos.com */
+//shuffle is a linted riff on http://yelotofu.com/2008/08/jquery-shuffle-plugin/
+(function($) {
+    $.shuffle = function(arr) {
+        for (var j, x, i = arr.length; i;) {
+        j = parseInt(Math.random() * i,10); x = arr[--i]; arr[i] = arr[j]; arr[j] = x;
+        }
         return arr;
-    }
+    };
 })(jQuery);
 
-(function () {
+(function() {
     var t, txName;
     t = $('.toggled');
     txName = $("#output input[type=text]");
@@ -28,17 +25,33 @@
         }
     }
 
-
-$(document).delegate('#output #generate"', 'click', function (evt, data) {
-    evt.preventDefault();
-    $.ajax({
-        type: "GET",
-        dataType: "json",
-        url: "/romance/js/authors.json",
-        success: function (data) {
-            t.slideToggle('fast');
-            handleAuthor(data);
+    function moveButton(whichButton, where, newTxt) {
+        var $btn, $where,v;
+        $btn = $(whichButton);
+        $where = $(where);
+        if ($btn.filter(':visible')) {
+            v = $btn.val();
+$btn.hide().val(newTxt).insertAfter($where).addClass('secondary').show();
+ $where.parent('li').slideDown('fast');
         }
+        else {
+            $btn.show();
+        }
+   }
+
+
+    $(document).delegate('#output #generate"', 'click', function(evt, data) {
+        evt.preventDefault();
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "/romance/js/authors.json",
+            success: function(data) {
+                t.slideDown('fast');
+                handleAuthor(data);
+                moveButton('#generate', '#wall', 'Generate your next author name');
+            }
+        });
     });
-});
 })();
+

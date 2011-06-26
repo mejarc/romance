@@ -4,6 +4,7 @@ background: #fff;
 color:#333;
 font: normal 13px/1.2em "lucida grande", tahoma, verdana, arial, sans-serif;
 }
+a, a:visited { color: #3b5998; }
 
 footer { font-size: 10px; margin-top: 60px; }
 
@@ -17,7 +18,7 @@ width:500px;
 
 
 header h1,
-header #fb-like { 
+header .fb { 
 display:inline-block;
 height:auto;
 vertical-align:top;
@@ -34,9 +35,8 @@ form li input,
 form li button,
 form li label { display:inline-block; }
 
-form li input, 
-form li button {
-border:1px solid #CAD4E7;
+form li input  {
+border:1px solid #d4dae8;
 -moz-border-radius:3px;
 -webkit-border-radius:3px;
 border-radius:3px;
@@ -48,20 +48,31 @@ width:220px;
 
 form li input[type=text] { padding:5px 0; }
 
-form li button:hover,
+form li input[type=button]:hover,
 form li input:focus {
 border-color: #9dacce;
 }
 
-form li button {
-background:#eceef5;
+form li input[type=button] {
+background:#eceff6;
 color:#3B5998;
 cursor: pointer;
 font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
 height:auto;
 margin: 0 0 0 230px;
 }
-.toggled { display:none; }
+
+form li:last-child input[type=button]:first-child { margin-right:10px;}
+form li:last-child input[type=button]:last-child { margin-left:0; }
+
+form li input[type=button].secondary { 
+background: #f7f7f7;
+border-color: #ccc;
+color: #666;
+}
+
+.toggled,
+form li:last-child { display:none; }
 
 .fb_edge_widget_with_comment {
 float:right;
