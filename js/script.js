@@ -45,7 +45,7 @@ $btn.hide().val(newTxt).insertAfter($where).addClass('secondary').show();
         $.ajax({
             type: "GET",
             dataType: "json",
-            url: "/romance/js/authors.json",
+            url: "/romance/js/mylibs/authors.json",
             success: function(data) {
                 t.slideDown('fast');
                 handleAuthor(data);

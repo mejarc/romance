@@ -30,7 +30,7 @@ class Facebook extends BaseFacebook
    * we discover them.
    *
    * @param Array $config the application configuration.
-   * @see BaseFacebook::__construct in facebook.php
+   * @see BaseFacebook::__construct in library/facebook.php
    */
   public function __construct($config) {
     if (!session_id()) {
