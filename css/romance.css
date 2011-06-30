@@ -56,14 +56,12 @@ border-color: #9dacce;
 form li input[type=button] {
 background:#eceff6;
 color:#3B5998;
+display:block;
 cursor: pointer;
 font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
 height:auto;
-margin: 0 0 0 230px;
+margin: 0 0 1.2em 230px;
 }
-
-form li:last-child input[type=button]:first-child { margin-right:10px;}
-form li:last-child input[type=button]:last-child { margin-left:0; }
 
 form li input[type=button].secondary { 
 background: #f7f7f7;
