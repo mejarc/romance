@@ -1,5 +1,5 @@
 <?php
-require_once 'config.php';
+//require_once 'config.php';
 
 ?> 
 <!doctype html>
@@ -39,8 +39,8 @@ require_once 'config.php';
 					Your Romance Novel Author Name 
 				</h1>
 				<div class="fb" id="fb-like">
-					<iframe src="//www.facebook.com/plugins/like.php?href=%2F%2Fapps.facebook.com%2Fromance-author-name&amp;layout=standard&amp;show_faces=true&amp;width=250&amp;action=like&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:250px; height:80px;" allowtransparency="true">
-					</iframe>
+					<!-- <iframe src="//www.facebook.com/plugins/like.php?href=%2F%2Fapps.facebook.com%2Fromance-author-name&amp;layout=standard&amp;show_faces=true&amp;width=250&amp;action=like&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:250px; height:80px;" allowtransparency="true">
+					</iframe> -->
 				</div>
 			</header>
 			<div id="main">
@@ -94,7 +94,7 @@ require_once 'config.php';
       <h3>Your User Object (/me)</h3>
       <pre><?php print_r($user_profile); ?></pre>
     <?php else: ?>
-      <strong><em>You are not Connected.!!</em></strong>
+      <strong><em>You are not connected!</em></strong>
     <?php endif ?>
 				</article>
 			</div>
@@ -109,10 +109,12 @@ require_once 'config.php';
 				</nav>
 			</footer>
 		</div>
-<script src="http://code.jquery.com/jquery-1.6.1.min.js"></script> 
-<script>!window.jQuery&&document.write(unescape('%3Cscript src="js/libs/jquery-1.4.4.min.js"%3E%3C/script%3E'));</script> 
-<!--[if lt IE 7 ]><script src="js/libs/dd_belatedpng.js"></script>
-    <script>DD_belatedPNG.fix("img, .png_bg");</script><![endif]-->
-<script>var _gaq=[["_setAccount","UA-8330160-1"],["_trackPageview"]];(function(e,a){var c=e.createElement(a),b=e.getElementsByTagName(a)[0];c.async=true;c.src=("https:"==location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";b.parentNode.insertBefore(c,b)})(document,"script");</script> <script src='js/script.js'></script> 
-	</body>
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+<!--<script>var _gaq=[["_setAccount","UA-8330160-1"],["_trackPageview"]];(function(e,a){var c=e.createElement(a),b=e.getElementsByTagName(a)[0];c.async=true;c.src=("https:"==location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";b.parentNode.insertBefore(c,b)})(document,"script");</script> 
+	 -->
+<script src='js/script.js'></script> 
+</body>
 </html>
