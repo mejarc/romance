@@ -1,0 +1,7 @@
+[alias]
+  gs = status
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff
+  lg = log -p
