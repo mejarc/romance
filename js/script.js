@@ -40,7 +40,7 @@ $btn.hide().val(newTxt).insertAfter($where).addClass('secondary').show();
    }
 
 
-    $(document).delegate('#output #generate', 'click', function(evt, data) {
+    $(document).delegate('#generate', 'click', function(evt, data) {
         evt.preventDefault();
         $.ajax({
             type: "GET",
