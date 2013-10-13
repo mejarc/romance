@@ -15,6 +15,6 @@ end
 # # Middle Name
 # puts get_sources('http://en.wikipedia.org/wiki/List_of_Italian_cheeses')
 # puts get_sources('http://en.wikipedia.org/wiki/One_Hundred_Years_War')
-
+# somehow these create one fabulous arrayy
 # Last Name
 puts get_sources('http://en.wikipedia.org/wiki/List_of_religious_houses_in_Scotland')
