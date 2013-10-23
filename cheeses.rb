@@ -3,6 +3,7 @@
 # require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
+# Crap. Rewrite parse_sources, all that.
 
 def get_sources(url)
   sources = Nokogiri::HTML(open(url))
