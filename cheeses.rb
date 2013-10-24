@@ -3,19 +3,31 @@
 # require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
-# Crap. Rewrite parse_sources, all that.
 
-def get_sources(url)
-  sources = Nokogiri::HTML(open(url))
-  sources.css('#mw-content-text ul li a[title]').map(&:text)
+def parse_sources(url, selector)
+  data = Nokogiri::HTML(open(url))
+  data.css(selector).map(&:text)
 end
 
-# # First Name
-# puts get_sources('http://en.wikipedia.org/wiki/County_flowers_of_the_United_Kingdom')
+def treat_data(data)
+  # obtain random array element
+  datum = data.sample
+  # convert to title case
+  datum.split(/(\W)/).map(&:capitalize).join
+end
 
-# # Middle Name
-# puts get_sources('http://en.wikipedia.org/wiki/List_of_Italian_cheeses')
-# puts get_sources('http://en.wikipedia.org/wiki/One_Hundred_Years_War')
-# somehow these create one fabulous arrayy
+names = []
+# First Name
+first_name = parse_sources('http://en.wikipedia.org/wiki/County_flowers_of_the_United_Kingdom', '#mw-content-text .wikitable td:nth-of-type(3)')
+
+# Middle Name
+middle_name = parse_sources('http://en.wikipedia.org/wiki/List_of_Italian_PDO_cheeses', '#mw-content-text .wikitable td:first-of-type a[title]')
+
 # Last Name
-puts get_sources('http://en.wikipedia.org/wiki/List_of_religious_houses_in_Scotland')
+last_name = parse_sources('http://en.wikipedia.org/wiki/List_of_Scottish_clans', '#mw-content-text .wikitable td:first-of-type')
+
+# Build an array of names to feed a JSON file
+10.times do  
+  names << "#{treat_data(first_name)} #{treat_data(middle_name)} #{treat_data(last_name)}"
+end
+p names
