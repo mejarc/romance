@@ -17,8 +17,8 @@ OmniAuth.config.on_failure = lambda do |env|
   [302, {'Location' => '/auth/failure', 'Content-Type' => 'text/html'}]
 end
 
-APP_ID = #
-APP_SECRET = #
+APP_ID = '112427873827'
+APP_SECRET = 'e1f6f709d008551e50f19240eb97ad71'
 
 use OmniAuth::Builder do
   provider :facebook, APP_ID, APP_SECRET, { :scope => 'email, status_update, publish_stream'}
@@ -61,8 +61,9 @@ get '/logout' do
   redirect '/'
 end
 
-# Canvas URL: ...
-# Secure Canvas URL: ...
+# access point from FB, Canvas URL and Secure Canvas URL must be point to this route
+# Canvas URL: http://localhost:9292/canvas/
+# Secure Canvas URL: https://localhost:443/canvas/
 
 post '/canvas/' do
   # if user doesn't grant permission
