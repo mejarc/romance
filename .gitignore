@@ -7,7 +7,7 @@ config/database.yml
 db/*.sqlite3
 /Makefile
 sessions/*
-
+Gemfile.lock
 
 # Packages
 

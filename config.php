@@ -1,7 +1,5 @@
 <?php
 require_once 'library/facebook.php';
-$app_id = "112427873827";
-$app_secret = "e1f6f709d008551e50f19240eb97ad71";
 $baseUrl= 'http://twobanjos.com/romance/';
 $appBaseUrl = 'https://apps.facebook.com/romance-author-name/';
 
