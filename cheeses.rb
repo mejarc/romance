@@ -11,18 +11,13 @@ end
 def treat_data(data)
   # obtain random array element
   datum = data.sample.split(' ')
-  if datum.length > 1
-    x = datum[1]
-  else
-    x = datum[0]
-  end
+  x = datum[-1]
   x.capitalize
 end
 
-# save JSON
+# save txt
 def save_data(data)
-  Dir.mkdir('js') unless Dir.exist? 'js'
-  filename = 'js/names.json'
+  filename = 'names.txt'
   File.open(filename, 'w') do |file|
     file.puts data
   end
