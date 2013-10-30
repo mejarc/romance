@@ -44,7 +44,7 @@ $btn.hide().val(newTxt).insertAfter($where).addClass('secondary').show();
         $.ajax({
             type: "GET",
             dataType: "text",
-            url: "/romance/names.txt",
+            url: "/names.txt",
             success: function(data) {
                 toggler.slideDown('fast');
                 handleAuthor(data);
