@@ -4,7 +4,7 @@
                 <h1>
                     Your Romance Novel Author Name
                 </h1>
-<%=session['fb_error'] %><br />
+<%# =session['fb_error'] %>
 <% if session['fb_auth'] %>
         <a href='logout'><img src='images/fb_logout_button.png'></a>
 <% else %>
@@ -20,10 +20,8 @@
                 </div>
                 <article class="post">
                     <section>
-                        <p>
-                            Remember those 50,000 words of torrid prose you wrote last 
-                        <a href="//nanowrimo.org">
-                            NaNoWriMo</a>? Generate an eye-catching pseudonym for that trash, sell it as a romance novel, and pay off your mortgage! 
+                        <p>Ashamed to put your real name on that potentially best-selling genre fiction you wrote last <a href="//nanowrimo.org">NaNoWriMo</a>?</p>
+                        <p>Generate your author name--and pay off your mortgage!
                         </p>
                     </section>
                     <section class="entry" id="output">
