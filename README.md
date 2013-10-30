@@ -1,6 +1,6 @@
 Your Romance Novel Author Name
 ---
-*Get an eye-catching pseudonym for that trashy, best-selling romance novel you're writing to pay off your mortgage!*
+*Ashamed to put your real name on that potentially best-selling genre fiction you wrote last NaNoWriMo? Generate your author name--and pay off your mortgage!*
 
 A very simple Facebook divertissement, just because. Ruby-scraped strings from Wikipedia (thank you, Nokogiri gem), placed gently into a text input field for users to copy and use as they please.
 
