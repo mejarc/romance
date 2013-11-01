@@ -22,6 +22,27 @@
 <script src="/js/libs/modernizr-1.6.min.js"></script> 
     </head>
     <body id="wrapper">
-        <%= yield %> 
+        <div id="container">
+            <header id="header">
+                 <h1>Your Romance Novel Author Name
+                            </h1>
+                <% if :title %>
+                <%= '<h2>' + @title + '</h2>' %>
+                <% end %>
+                <%= session[ 'fb_error'] %>
+                    <% if session[ 'fb_auth'] %> <a href='logout'><img src='images/fb_logout_button.png'></a>
+
+                        <% else %> <a href='login'><img src='images/fb_login_button.png'></a>
+
+                            <% end %>
+                <div class="fb" id="fb-like">
+                    <iframe src="//www.facebook.com/plugins/like.php?href=%2F%2Fapps.facebook.com%2Fromance-author-name&amp;layout=standard&amp;show_faces=true&amp;width=250&amp;action=like&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:250px; height:80px;" allowtransparency="true"></iframe>
+                </div>
+            </header>
+            <%= yield %>
+            <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+            <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+            <script src='/js/app.js'></script>
+        </div>
     </body>
 </html>
