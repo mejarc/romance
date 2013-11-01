@@ -61,6 +61,21 @@ get '/logout' do
   redirect '/'
 end
 
+get '/about' do
+  @title = 'About This Application'
+  erb :about
+end
+
+get '/tos' do
+  @title = 'Terms Of Service'
+  erb :tos
+end
+
+get '/privacy' do
+  @title = 'Privacy Policy'
+  erb :privacy
+end
+
 # access point from FB, Canvas URL and Secure Canvas URL must be point to this route
 # Canvas URL: http://localhost:9292/canvas/
 # Secure Canvas URL: https://localhost:443/canvas/
@@ -68,8 +83,8 @@ end
 post '/canvas/' do
   # if user doesn't grant permission
   redirect '/auth/failure' if request.params['error'] == 'access_denied'
-
-  settings.redirect_uri = 'https://apps.facebook.com/romance-author-name/'
+  settings.redirect_uri = 'http://localhost:9292/'
+#  settings.redirect_uri = 'https://apps.facebook.com/romance-author-name/'
 
   # Assessing whether user is accessing the app from the FB iframe
   url = request.params['code'] ? "/auth/facebook?signed_request=#{request.params['signed_request']}&state=canvas" : '/login'
@@ -87,7 +102,7 @@ __END__
 @@dialog_oauth
 <script>
   var oauth_url = 'https://www.facebook.com/dialog/oauth/';
-  oauth_url += '?client_id= ...'
+  oauth_url += '?client_id=112427873827'
   oauth_url += 'redirect_uri=' + encodeURIComponent('<%=settings.redirect_uri%>');
   oauth_url += '&scope=email, status_update, publish_stream';
 
