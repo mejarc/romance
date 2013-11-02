@@ -46,7 +46,14 @@ text-align:center;
 width:220px;
 }
 
-form li input[type=text] { padding:5px 0; }
+form li input[type=text] { 
+border: 0; 
+padding: 0;
+font-weight: 700;
+font-size: 110%;
+text-align: left;
+width: 300px;
+}
 
 form li input[type=button]:hover,
 form li input:focus {
@@ -60,7 +67,7 @@ display:block;
 cursor: pointer;
 font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
 height:auto;
-margin: 0 0 1.2em 230px;
+margin: 0 0 1.2em 240px;
 }
 
 form li input[type=button].secondary { 
@@ -69,6 +76,7 @@ border-color: #ccc;
 color: #666;
 }
 
+form li label { margin-right: .75em; }
 .toggled,
 form li:last-child { display:none; }
 

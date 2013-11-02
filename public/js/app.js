@@ -23,15 +23,20 @@
         j = Math.floor(Math.random() * (len - 1));
         txName.attr("value", names[j]);
     }
+/**
 
+@param {String} whichButton
+@param {String} where
+@param {String} newTxt
+*/
     function moveButton(whichButton, where, newTxt) {
         var $btn, $where,v;
         $btn = $(whichButton);
         $where = $(where);
         if ($btn.filter(':visible')) {
             v = $btn.val();
-$btn.hide().val(newTxt).insertAfter($where).addClass('secondary').show();
- $where.parent('li').slideDown('fast');
+            $btn.val(newTxt).insertAfter($where).addClass('secondary').show();
+            $where.parent('li').slideDown('fast');
         }
         else {
             $btn.show();
