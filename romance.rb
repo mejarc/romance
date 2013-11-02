@@ -26,6 +26,7 @@ use OmniAuth::Builder do
 end
 
 get_post '/' do
+  @title = ''
   erb :index
 end
 
