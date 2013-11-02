@@ -19,13 +19,16 @@
                                         <label>
                                             Your romance novel author name is 
                                         </label>
-                                        <input type="text" placeholder="...just a sec..." />
+                                        <input id="output" type="text" placeholder="...just a sec..." />
                                     </li>
-                                    <% if session['fb_auth'] %>
                                     <li>
+
+                                    <% if session['fb_auth'] %>
                                         <input id="wall" type="button" value="Post your name to your Wall" />
-                                    </li>
+                                    <% else %>
+                                        <input id="wall" type="button" value="Post your name to your Wall" />
                                     <% end %>
+                                    </li>
                                 </ol>
                             </fieldset>
                         </form>
