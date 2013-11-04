@@ -75,10 +75,10 @@ get '/privacy' do
   erb :privacy
 end
 
-# access point from FB, Canvas URL and Secure Canvas URL must be point to this route
-# Canvas URL: http://localhost:9292/canvas/
-# Secure Canvas URL: https://localhost:443/canvas/
+get '/wall' do
+end
 
+# access point from FB, Canvas URL and Secure Canvas URL must be point to this route
 post '/canvas/' do
   # if user doesn't grant permission
   redirect '/auth/failure' if request.params['error'] == 'access_denied'
