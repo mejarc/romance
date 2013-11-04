@@ -18,8 +18,8 @@ OmniAuth.config.on_failure = lambda do |env|
   [302, {'Location' => '/auth/failure', 'Content-Type' => 'text/html'}]
 end
 
-APP_ID = '112427873827'
-APP_SECRET = 'e1f6f709d008551e50f19240eb97ad71'
+APP_ID = '176341382563303'
+APP_SECRET = '5e7ce5dc3d6180c81df65b0b4e66df37'
 
 use OmniAuth::Builder do
   provider :facebook, APP_ID, APP_SECRET, { :scope => 'email, status_update, publish_stream'}
