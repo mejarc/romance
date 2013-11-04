@@ -30,6 +30,11 @@ get_post '/' do
   erb :index
 end
 
+get_post '/index' do
+  @title = ''
+  erb :index
+end
+
 # After authentication
 get '/auth/facebook/callback' do
   fb_auth = request.env['omniauth.auth']
@@ -75,8 +80,6 @@ get '/privacy' do
   erb :privacy
 end
 
-get '/wall' do
-end
 
 # access point from FB, Canvas URL and Secure Canvas URL must be point to this route
 post '/canvas/' do
