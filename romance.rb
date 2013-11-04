@@ -82,7 +82,7 @@ end
 post '/canvas/' do
   # if user doesn't grant permission
   redirect '/auth/failure' if request.params['error'] == 'access_denied'
-  settings.redirect_uri = 'https://apps.facebook.com/romance-author-name/'
+  settings.redirect_uri = 'http://romance-author-name.herokuapp.com/'
 
   # Assessing whether user is accessing the app from the FB iframe
   url = request.params['code'] ? "/auth/facebook?signed_request=#{request.params['signed_request']}&state=canvas" : '/login'
