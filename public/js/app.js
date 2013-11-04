@@ -1,61 +1,88 @@
 /* Author: Melanie Archer, twobanjos.com */
 
-(function() {
+$(function () {
     "use strict";
+    $.ajaxSetup({ cache: true });
+    $.getScript('//connect.facebook.net/en_US/all.js', function(){
+        FB.init({
+          appId: '176341382563303',
+          channelUrl: '//twobanjos.com/romance/channel.html',
+        });     
+        $('#loginbutton, #feedbutton').removeAttr('disabled');
+        FB.getLoginStatus(updateStatusCallback);
+    });
+
     var toggler, txName;
     toggler = $('.toggled');
     txName = $("#output input[type=text]");
-/** 
-* Opens Ruby-generated text file, reads
-* each line, places data as value on form
-* input.
-* @param {String} txdata
-*/
+    /** 
+     * Opens Ruby-generated text file, reads
+     * each line, places data as value on form
+     * input.
+     * @param {String} txdata
+     */
     function handleAuthor(txdata) {
         var lines = txdata.split("\n"),
             names = [],
             i,
             j,
             len = lines.length;
-        for (i = 0; i<len; i+=1) {
+        for (i = 0; i < len; i += 1) {
             names.push(lines[i]);
         }
         j = Math.floor(Math.random() * (len - 1));
         txName.attr("value", names[j]);
     }
-/**
-
-@param {String} whichButton
-@param {String} where
-@param {String} newTxt
-*/
+    /**
+     * Shows generated name and 'Post to Wall' button
+     * @param {String} whichButton
+     * @param {String} where
+     * @param {String} newTxt
+     */
     function moveButton(whichButton, where, newTxt) {
-        var $btn, $where,v;
+        var $btn, $where, v;
         $btn = $(whichButton);
         $where = $(where);
         if ($btn.filter(':visible')) {
             v = $btn.val();
             $btn.val(newTxt).insertAfter($where).addClass('secondary').show();
             $where.parent('li').slideDown('fast');
-        }
-        else {
+        } else {
             $btn.show();
         }
-   }
+    }
 
-
-    $(document).delegate('#generate', 'click', function(evt, data) {
+    /**
+     * Attaches click ajax event to 'Generate' button, shows 'Post to Wall' button
+     * @param {Object} evt
+     * @param {String} data
+     */
+    $('#generate').on('click', function (evt, data) {
         evt.preventDefault();
         $.ajax({
             type: "GET",
             dataType: "text",
             url: "/names.txt",
-            success: function(data) {
+            success: function (data) {
                 toggler.slideDown('fast');
                 handleAuthor(data);
                 moveButton('#generate', '#wall', 'Generate your next author name');
             }
         });
     });
-})();
-
+    /** 
+    * Attaches click ajax post event to 'Wall' button
+    * 
+    *
+    */
+    $('#wall').on('click', function(){
+        var body = txName.val();
+        FB.api('/me/feed', 'post', { message: body }, function(response) {
+            if (!response || response.error) {
+                alert('Error occured');
+            } else {
+                alert('Post ID: ' + response.id);
+            }
+        });
+    });
+});
