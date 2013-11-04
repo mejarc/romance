@@ -76,12 +76,12 @@ $(function () {
     *
     */
     $('#wall').on('click', function(){
-        var body = txName.val();
+        var body = 'My Romance Novel Author Name is ' + txName.val() + '. (Keep it under your hat)' ;
         FB.api('/me/feed', 'post', { message: body }, function(response) {
             if (!response || response.error) {
-                alert('Error occured');
+                // redirect?!
             } else {
-                alert('Post ID: ' + response.id);
+                console.log('Post ID: ' + response.id);
             }
         });
     });
