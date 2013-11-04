@@ -9,7 +9,7 @@ $(function () {
           channelUrl: '//twobanjos.com/romance/channel.html',
         });     
         $('#loginbutton, #feedbutton').removeAttr('disabled');
-        FB.getLoginStatus(updateStatusCallback);
+       // FB.getLoginStatus(updateStatusCallback);
     });
 
     var toggler, txName;
@@ -76,7 +76,7 @@ $(function () {
     *
     */
     $('#wall').on('click', function(){
-        var body = 'My Romance Novel Author Name is ' + txName.val() + '. (Keep it under your hat)' ;
+        var body = 'My romance novel author name is: ' + txName.val();
         FB.api('/me/feed', 'post', { message: body }, function(response) {
             if (!response || response.error) {
                 // redirect?!
