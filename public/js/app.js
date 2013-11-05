@@ -3,7 +3,7 @@
 $(function () {
     "use strict";
     $.ajaxSetup({ cache: true });
-    $.getScript('//connect.facebook.net/en_US/all.js', function(){
+    $.getScript('//connect.facebook.net/en_US/all.js?', function(){
         FB.init({
           appId: '176341382563303',
           channelUrl: '//twobanjos.com/romance/channel.html',
@@ -71,7 +71,7 @@ $(function () {
         });
     });
     /** 
-    * Attaches click ajax post event to 'Wall' button
+    * Attaches click post event to 'Wall' button
     * 
     *
     */
@@ -81,7 +81,9 @@ $(function () {
             if (!response || response.error) {
                 // redirect?!
             } else {
-                console.log('Post ID: ' + response.id);
+            console.dir('Post ID: ' + response.id);
+            setTimeout(function(){window.location = obj.data.whereTo;}, 3000);
+
             }
         });
     });
