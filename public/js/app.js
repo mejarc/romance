@@ -1,4 +1,8 @@
 /* Author: Melanie Archer, twobanjos.com */
+/* Next: 
+ FB.__globalCallbacks.f1e4cd8a24({"error":{"message":"An active access token must be used to query information about the current user.","type":"OAuthException","code":2500}});
+*/
+
 
 $(function () {
     "use strict";
@@ -6,7 +10,7 @@ $(function () {
     $.getScript('//connect.facebook.net/en_US/all.js?', function(){
         FB.init({
           appId: '176341382563303',
-          channelUrl: '//twobanjos.com/romance/channel.html',
+          channelUrl: '//twobanjos.com/romance/channel.html'
         });     
         $('#loginbutton, #feedbutton').removeAttr('disabled');
        // FB.getLoginStatus(updateStatusCallback);
