@@ -84,13 +84,14 @@ $(function () {
     */
     $('#wall').on('click', function(){
         var body = 'My romance novel author name is: ' + txName.val();
+                    FB.api('/me', function(response) {
+  alert('Your name is ' + response.name);
+});
         FB.api('/me/feed', 'post', { message: body }, function(response) {
             if (!response || response.error) {
-                // redirect?!
+              console.dir('Error. ');
             } else {
-            console.dir('Post ID: ' + response.id);
-            setTimeout(function(){window.location = obj.data.whereTo;}, 3000);
-
+              console.dir('Post ID: ' + response.id);
             }
         });
     });
