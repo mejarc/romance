@@ -10,6 +10,9 @@ $(function () {
     $.getScript('//connect.facebook.net/en_US/all.js?', function(){
         FB.init({
           appId: '176341382563303',
+          status: true,
+          cookie: true,
+          oauth: true,
           channelUrl: '//twobanjos.com/romance/channel.html'
         });     
         $('#loginbutton, #feedbutton').removeAttr('disabled');
