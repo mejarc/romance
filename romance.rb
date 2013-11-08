@@ -46,7 +46,7 @@ end
 
 # Handling auth failure
 get '/auth/failure' do
-  clear_session
+  # clear_session
   session['fb_error'] = 'We need your permission to use Facebook features, which you have not granted.'
 end
 
