@@ -38,7 +38,7 @@ end
 # After authentication
 get '/auth/facebook/callback' do
   fb_auth = request.env['omniauth.auth']
-  session['fb_auth']
+  session['fb_auth'] = fb_auth
   session['fb_token'] = cookies[:fb_token] = fb_auth['credentials']['token']
   session['fb_error'] = nil
   redirect '/'
