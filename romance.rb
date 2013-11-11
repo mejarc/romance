@@ -3,7 +3,6 @@
 require 'sinatra'
 require 'sinatra/cookies'
 require 'omniauth-facebook'
-require 'fb_graph'
 require './helpers/get_post'
 
 enable :sessions
@@ -85,10 +84,11 @@ end
 post '/canvas/' do
   # if user doesn't grant permission
   redirect '/auth/failure' if request.params['error'] == 'access_denied'
-  settings.redirect_uri = 'http://romance-author-name.herokuapp.com/'
+  settings.redirect_uri = 'http://apps.facebook.com/romance-name/'
 
   # Assessing whether user is accessing the app from the FB iframe
   url = request.params['code'] ? "/auth/facebook?signed_request=#{request.params['signed_request']}&state=canvas" : '/login'
+  redirect url
 end
 
 def clear_session
