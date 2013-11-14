@@ -104,12 +104,12 @@ end
 # stop Ruby parsing
 __END__
 
-@@dialog_oauth
+@@ dialog_oauth
 <script>
   var oauth_url = 'https://www.facebook.com/dialog/oauth/';
-  oauth_url += '?client_id=112427873827'
-  oauth_url += 'redirect_uri=' + encodeURIComponent('<%=settings.redirect_uri%>');
-  oauth_url += '&scope=email, status_update, publish_stream';
+  oauth_url += '?client_id=112427873827';
+  oauth_url += '&redirect_uri=' + encodeURIComponent('<%=settings.redirect_uri%>');
+  oauth_url += '&scope=email, status_update, publish_stream'
 
   window.top.location = oauth_url;
 </script>
