@@ -3,6 +3,7 @@
 require 'sinatra'
 require 'sinatra/cookies'
 require 'omniauth-facebook'
+require 'fb_graph'
 require './helpers/get_post'
 
 enable :sessions
@@ -14,7 +15,7 @@ configure do
 end
 
 OmniAuth.config.on_failure = lambda do |env|
-  [302, {'Location' => '/auth/failure', 'Content-Type' => 'text/html'}]
+  [302, {'Location' => '/auth/failure', 'Content-Type' => 'text/html'}, []]
 end
 
 APP_ID = '176341382563303'
@@ -45,16 +46,18 @@ end
 
 # Handling auth failure
 get '/auth/failure' do
-  # clear_session
+  clear_session
   session['fb_error'] = 'We need your permission to use Facebook features, which you have not granted.'
+  redirect '/'
 end
 
 get '/login' do
   if settings.redirect_uri
     # in FB canvas
+    # we're in FB
     erb :dialog_oauth
   else
-    # the standalone app
+# we aren't in FB (standalone app)
     redirect '/auth/facebook'
   end
 end
@@ -95,6 +98,7 @@ def clear_session
   session['fb_auth'] = nil
   session['fb_token'] = nil
   session['fb_error'] = nil
+  cookies[:fb_token] = nil
 end
 
 # stop Ruby parsing
