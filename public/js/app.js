@@ -85,8 +85,8 @@ $(function () {
     $('#wall').on('click', function(){
         var body = 'My romance novel author name is: ' + txName.val();
                     FB.api('/me', function(response) {
-  alert('Your name is ' + response.name);
-});
+                      console.log(response.name);
+                  });
         FB.api('/me/feed', 'post', { message: body }, function(response) {
             if (!response || response.error) {
               console.dir('Error. ');
