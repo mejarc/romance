@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mejarc/romance.svg?branch=develop)](https://travis-ci.org/mejarc/romance)
+
 Your Romance Novel Author Name
 ---
 Ashamed to put your real name on that potentially best-selling genre fiction you wrote last NaNoWriMo? *Generate your author name--and pay off your mortgage!*
