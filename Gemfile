@@ -20,9 +20,9 @@ gem 'shotgun'
 
 gem 'json'
 
-gem 'omniauth'
-gem 'omniauth-facebook'
-gem 'fb_graph'
+# gem 'omniauth'
+# gem 'omniauth-facebook'
+# gem 'fb_graph'
 
 group :test do
   gem 'shoulda-matchers'
