@@ -1,45 +1,45 @@
+<div id="main">
+  <div id="fb-root">
+  </div>
+  <article class="post">
+      <section>
+          <p>Ashamed to put your real name on that potentially best-selling genre fiction you wrote last <a href="//nanowrimo.org">NaNoWriMo</a>?</p>
+          <p>Generate your author name--and pay off your mortgage!
+          </p>
+      </section>
+      <section class="entry">
+        
+          <form>
+              <fieldset>
+                  <ol>
+                      <li>
+                          <input id="generator" type="button" value="Generate your author name" />
+                      </li>
+                      <li class="toggler">
+                          <label>
+                              Your romance novel author name is 
+                          </label>
+                          <input id="reporter" type="text" placeholder="...just a sec..." />
+                      </li>
+                      <li>
 
-            <div id="main">
-                <div id="fb-root">
-                </div>
-                <article class="post">
-                    <section>
-                        <p>Ashamed to put your real name on that potentially best-selling genre fiction you wrote last <a href="//nanowrimo.org">NaNoWriMo</a>?</p>
-                        <p>Generate your author name--and pay off your mortgage!
-                        </p>
-                    </section>
-                    <section class="entry" id="output">
-                        <form>
-                            <fieldset>
-                                <ol>
-                                    <li>
-                                        <input id="generate" type="button" value="Generate your author name" />
-                                    </li>
-                                    <li class="toggled">
-                                        <label>
-                                            Your romance novel author name is 
-                                        </label>
-                                        <input id="output" type="text" placeholder="...just a sec..." />
-                                    </li>
-                                    <li>
-
-                                    <% if session['fb_auth'] %>
-                                        <input id="wall" type="button" value="Post your name to your Wall" />
-                                    <% end %>
-                                    </li>
-                                </ol>
-                            </fieldset>
-                        </form>
-                    </section>
-                </article>
-            </div>
-            <footer>
-                <nav>
-                    <ol>
-                        <li>
-                            <a href="/about">
-                                About this application</a>
-                        </li>
-                    </ol>
-                </nav>
-            </footer>
+                      <% if session['fb_auth'] %>
+                          <input id="wall" type="button" value="Post your name to your Wall" />
+                      <% end %>
+                      </li>
+                  </ol>
+              </fieldset>
+          </form>
+      </section>
+  </article>
+</div>
+<footer>
+  <nav>
+    <ol>
+        <li>
+            <a href="/about">
+                About this application</a>
+        </li>
+    </ol>
+  </nav>
+</footer>
