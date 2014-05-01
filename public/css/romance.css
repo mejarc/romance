@@ -47,8 +47,7 @@ width:220px;
 }
 
 form li input[type=text] { 
-border: 0; 
-padding: 0;
+border: 0;
 font-weight: 700;
 font-size: 110%;
 text-align: left;
@@ -74,6 +73,7 @@ form li input[type=button].secondary {
 background: #f7f7f7;
 border-color: #ccc;
 color: #666;
+margin-bottom: 1.2em;
 }
 
 form li label { margin-right: .75em; }
