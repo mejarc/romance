@@ -9,11 +9,13 @@
 
 var items,
 RomanceApp = {
-  // store found elements
+  // store the elements found
   elms: {
+    wrapper:   $('#wrapper'),
     toggler:   $('.toggler'),
     generator: $('#generator'),
-    reporter:  $('#reporter')
+    reporter:  $('#reporter'),
+    poster:    $('#poster')
   },
   init: function(){
     items = this.elms;
@@ -21,16 +23,18 @@ RomanceApp = {
   },
   // add event listeners 
   bindActions: function(){
-    items.toggler.on('load', RomanceApp.toggleElement);
+    items.wrapper.on('load', items.toggler.hide());
     items.generator.on('click', RomanceApp.fetchName);
   },
   // showing/hiding UI element
   toggleElement: function(elm){
     elm.toggle('fast');
+    // console.log(elm)
   },
   // use data sent by backend
    handleName: function(data) {
-    items.reporter.attr('placeholder', data);
+    RomanceApp.toggleElement(items.toggler);
+    items.reporter.attr('placeholder', '');
     items.reporter.val(data);
   },
   // Use post request to obtain pseudonym
@@ -42,7 +46,8 @@ RomanceApp = {
       }).done(function(serverData) {
         RomanceApp.handleName(serverData);
     });
-  }
+  },
+  // Show 'Post to Wall' button
 };
 
 
