@@ -37,8 +37,9 @@ describe("App", function(){
 
   describe("handleName", function(){
     var reporter = items.reporter,
-      generator = items.generator,
-      pseudonym = RomanceApp.fetchName('click');
+        generator = items.generator,
+        e = jasmine.createSpyObj('evt', ['preventDefault']),
+        pseudonym = RomanceApp.fetchName(e);
     RomanceApp.handleName();
 
     it("removes the placeholder", function(){
@@ -53,6 +54,19 @@ describe("App", function(){
   describe("fetchName", function(){
     it("intercepts a post request to /names")
     it("calls handleName() onsuccess")
+  });
+
+  describe("postName", function(){
+    var reporter = items.reporter,
+        generator = items.generator,
+        e = jasmine.createSpyObj('evt', ['preventDefault']),
+        pseudonym = RomanceApp.fetchName(e);
+    RomanceApp.handleName();
+    
+    it("returns the current value of the #reporter input", function(){
+      var val = reporter.val();
+      expect(RomanceApp.postName()).toEqual(pseudonym);
+    })
   });
     
 });

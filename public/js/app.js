@@ -25,11 +25,11 @@ RomanceApp = {
   bindActions: function(){
     items.wrapper.on('load', items.toggler.hide());
     items.generator.on('click', RomanceApp.fetchName);
+    items.poster.on('click', RomanceApp.postName);
   },
   // showing/hiding UI element
   toggleElement: function(elm){
     elm.toggle('fast');
-    // console.log(elm)
   },
   // use data sent by backend
    handleName: function(data) {
@@ -47,61 +47,11 @@ RomanceApp = {
         RomanceApp.handleName(serverData);
     });
   },
-  // Show 'Post to Wall' button
+  // Activate 'Post to Wall' button
+  postName: function(){
+    return items.reporter.val();
+  }
 };
-
-
-/**
- * Shows generated name and 'Post to Wall' button
- * @param {String} whichButton
- * @param {String} where
- * @param {String} newTxt
- */
-// function moveButton(whichButton, where, newTxt) {
-//   var $btn, $where, v;
-//   $btn = $(whichButton);
-//   $where = $(where);
-//   if ($btn.filter(':visible')) {
-//       v = $btn.val();
-//       $btn.val(newTxt).insertAfter($where).addClass('secondary').show();
-//       $where.parent('li').slideDown('fast');
-//   } else {
-//       $btn.show();
-//   }
-// }
-
-  // $.ajaxSetup({ cache: true });
-  // $.getScript('//connect.facebook.net/en_US/all.js?', function(){
-  //     FB.init({
-  //       appId: '176341382563303',
-  //       status: true,
-  //       cookie: true,
-  //       oauth: true,
-  //       channelUrl: '//twobanjos.com/romance/channel.html'
-  //     });     
-  //     $('#loginbutton, #feedbutton').removeAttr('disabled');
-     // FB.getLoginStatus(updateStatusCallback);
-
-
-    /** 
-    * Attaches click post event to 'Wall' button
-    * 
-    *
-    */
-  // $('#wall').on('click', function(){
-  //   var body = 'My romance novel author name is: ' + txName.val();
-  //               FB.api('/me', function(response) {
-  //                 console.log(response.name);
-  //             });
-  //   FB.api('/me/feed', 'post', { message: body }, function(response) {
-  //       if (!response || response.error) {
-  //         console.dir('Error. ');
-  //       } else {
-  //         console.dir('Post ID: ' + response.id);
-  //       }
-  //   });
-  // });
-
 /**
 * Initialize the application.
 */
@@ -109,5 +59,28 @@ RomanceApp = {
 (function(){
   "use strict";
   RomanceApp.init();
+
+  $.ajaxSetup({ cache: true });
+  $.getScript('//connect.facebook.net/en_US/all.js', function(){
+      FB.init({
+        appId: '176341382563303', 
+        status: true
+      });
+
+      FB.login(function(){
+        var msg = RomanceApp.postName();
+        console.log(msg);
+        // FB.api('/me/feed', 'post', { message: 'My romance author name is ' + msg }, function(response){
+        //   if (response){
+        //     console.dir('Post ID: '+ response.id);
+        //   }
+        //   else {
+        //     console.dir('Error; no FB response');
+        //   }
+        // });
+      }, { scope: 'publish_actions' });
+
+      $('#loginbutton, #feedbutton').removeAttr('disabled');
+    });
 })();
 
