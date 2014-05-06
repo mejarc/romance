@@ -8,6 +8,7 @@
 */
 
 var items,
+    templates,
 RomanceApp = {
   // store the elements found
   elms: {
@@ -17,8 +18,15 @@ RomanceApp = {
     reporter:  $('#reporter'),
     poster:    $('#poster')
   },
+  templates: {
+    message: function(str){
+      var msg = ['My romance author name is ', str, '.'].join('');
+      return msg;
+    }
+  },
   init: function(){
     items = this.elms;
+    templates = this.templates;
     this.bindActions();
   },
   // add event listeners 
@@ -49,9 +57,21 @@ RomanceApp = {
   },
   // Activate 'Post to Wall' button
   postName: function(){
-    return items.reporter.val();
+    var pseudonym = items.reporter.val();
+    if (pseudonym){
+      console.log('pseudo' + pseudonym);
+      FB.api('/me/feed', 'post', { message: templates.message(pseudonym) }, function(response){
+        if (response){
+          console.dir('Post ID: '+ response.id);
+        }
+        else {
+          console.dir('Error; no FB response');
+        }
+      });
+    }
   }
 };
+
 /**
 * Initialize the application.
 */
@@ -64,23 +84,19 @@ RomanceApp = {
   $.getScript('//connect.facebook.net/en_US/all.js', function(){
       FB.init({
         appId: '176341382563303', 
-        status: true
+        status: true,
+        cookie: true,
+        xfbml: true
       });
-
-      FB.login(function(){
-        var msg = RomanceApp.postName();
-        console.log(msg);
-        // FB.api('/me/feed', 'post', { message: 'My romance author name is ' + msg }, function(response){
-        //   if (response){
-        //     console.dir('Post ID: '+ response.id);
-        //   }
-        //   else {
-        //     console.dir('Error; no FB response');
-        //   }
-        // });
-      }, { scope: 'publish_actions' });
-
-      $('#loginbutton, #feedbutton').removeAttr('disabled');
-    });
+      FB.getLoginStatus(function(response){
+        if (response.status === 'connected'){
+          console.log('Logged in.');
+        }
+        else {
+          FB.login();
+        }
+      });
+    }, { scope: 'publish_actions' });
+    $('#loginbutton, #feedbutton').removeAttr('disabled');
 })();
 
