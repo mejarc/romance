@@ -1,21 +1,12 @@
-// https://github.com/velesin/jasmine-jquery
-// describe("selectElements", function(){
-//   beforeEach(function(){
-//     elms = selectElements();
-//   });
-
-//   it("finds the element that toggles visibility", function(){
-//     expect(elms.toggler).toBeDefined();
-//   });
-  
-//   it("finds the element that holds the pseudonym", function(){
-//     expect(elms.nameHolder).toBeDefined();
-//   });
-// });
 describe("App", function(){
   beforeEach(function(){
     RomanceApp.init();
   });
+
+ sharedSetup = function(){
+  
+    return reporter, generator, pseudonym;
+  }
 
   describe("bindActions", function(){
     it("hides the #toggler element on loading #wrapper", function(){
@@ -58,14 +49,14 @@ describe("App", function(){
 
   describe("postName", function(){
     var reporter = items.reporter,
-        generator = items.generator,
-        e = jasmine.createSpyObj('evt', ['preventDefault']),
-        pseudonym = RomanceApp.fetchName(e);
-    RomanceApp.handleName();
-    
+          generator = items.generator,
+          e = jasmine.createSpyObj('evt', ['preventDefault']),
+          pseudonym = RomanceApp.fetchName(e);
+      RomanceApp.handleName();
+
     it("returns the current value of the #reporter input", function(){
-      var val = reporter.val();
-      expect(RomanceApp.postName()).toEqual(pseudonym);
+      var val = items.reporter.val();
+      expect(RomanceApp.postName()).toEqual(val);
     })
   });
     
